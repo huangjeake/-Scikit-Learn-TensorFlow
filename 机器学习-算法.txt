@@ -1,0 +1,177 @@
+K临近算法：
+就是通过你的"邻居"来判断你属于哪个类别
+sklearn的优势:
+文档多,且规范
+包含的算法多
+实现起来容易
+sklearn.neighbors.KNeighborsClassifier(n_neighbors=5)
+最小二乘法拟合不用绝对值或者三次方，三次方对异常更加敏感，绝对值占用内存，计算复杂
+平方计算简便，方便求导
+
+kd数是一种高维索引树形数据结构，常用于在大规模的高维数据空间进行最近邻查找(Nearest Neighbor)和近似最近邻查找(Approximate Nearest Neighbor)
+kd树的构建过程：
+1.构造根节点
+2.通过递归的方法，不断地对k维空间进行切分，生成子节点
+3.重复第二步骤，直到子区域中没有示例时终止
+需要关注细节：a.选择向量的哪一维进行划分；b.如何划分数据
+
+Seaborn 是基于 Matplotlib 核心库进行了更高级的 API 封装，可以让你轻松地画出更漂亮的图形。而 Seaborn 的漂亮主要体现在配色更加舒服、以及图形元素的样式更加细腻
+pip3 install seaborn
+seaborn.lmplot() 是一个非常有用的方法，它会在绘制二维散点图时，自动完成回归拟合
+sns.lmplot() 里的 x, y 分别代表横纵坐标的列名,
+data= 是关联到数据集,
+hue=*代表按照 species即花的类别分类显示,
+fit_reg=是否进行线性拟合。
+
+小数据:
+sklearn.datasets.load_*
+大数据集:
+sklearn.datasets.fetch_*
+返回值的属性:
+data：特征数据数组
+target：标签(目标)数组
+DESCR：数据描述
+feature_names：特征名,
+target_names：标签(目标值)名
+sklearn.model_selection.train_test_split(arrays, *options)
+参数：
+x -- 特征值
+y -- 目标值
+test_size -- 测试集大小
+ramdom_state -- 随机数种子
+返回值:
+x_train, x_test, y_train, y_test
+
+特征预处理：
+归一化：适合小数据
+sklearn.preprocessing.MinMaxScaler (feature_range=(0,1)… )
+参数:feature_range -- 自己指定范围,默认0-1
+标准化：适合大数据
+sklearn.preprocessing.StandardScaler( )
+k近邻算法总结：
+优点：
+简单有效
+重新训练的代价低
+适合类域交叉样本
+适合大样本自动分类
+缺点：
+惰性学习
+类别评分不是规格化
+输出可解释性不强
+对不均衡的样本不擅长
+计算量较大
+
+交叉验证，网格搜索（模型选择与调优)
+为了让被评估的模型更加准确可信
+sklearn.model_selection.GridSearchCV(estimator, param_grid=None,cv=None)
+estimator：估计器对象
+param_grid：估计器参数(dict){“n_neighbors”:[1,3,5]}
+cv：指定几折交叉验证
+estimator.best_score_:在交叉验证中验证的最好结果
+estimator.bestestimator：最好的参数模型
+estimator.cvresults:每次交叉验证后的验证集准确率结果和训练集准确率结果
+
+线性回归：
+回归方程(函数)对一个或多个自变量(特征值)和因变量(目标值)之间关系进行建模的一种分析方式
+sklearn.linear_model.LinearRegression()
+LinearRegression.coef_：回归系数
+正规方程两种推导方式：
+对于权重求导（Xw - y）**2  或者（Xw - y）T （Xw - y)装置与原矩阵相乘
+
+梯度：
+在单变量的函数中，梯度其实就是函数的微分，代表着函数在某个给定点的切线的斜率；
+​在多变量函数中，梯度是一个向量，向量有方向，梯度的方向就指出了函数在给定点的上升最快的方向
+
+小规模数据：
+正规方程：LinearRegression(不能解决拟合问题)
+岭回归
+大规模数据：
+梯度下降法：SGDRegressor
+
+全梯度下降算法（FG）【知道】
+在进行计算的时候,计算所有样本的误差平均值,作为我的目标函数
+随机梯度下降算法（SG）【知道】
+每次只选择一个样本进行考核
+小批量梯度下降算法（mini-batch）【知道】
+选择一部分样本进行考核
+随机平均梯度下降算法（SAG）【知道】
+会给每个样本都维持一个平均值,后期计算的时候,参考这个平均值
+
+sklearn.linear_model.LinearRegression(fit_intercept=True)
+通过正规方程优化
+参数
+fit_intercept：是否计算偏置
+属性
+LinearRegression.coef_：回归系数
+LinearRegression.intercept_：偏置
+sklearn.linear_model.SGDRegressor(loss="squared_loss", fit_intercept=True, learning_rate ='invscaling', eta0=0.01)
+SGDRegressor类实现了随机梯度下降学习，它支持不同的loss函数和正则化惩罚项来拟合线性回归模型。
+参数：
+loss:损失类型
+loss=”squared_loss”: 普通最小二乘法
+fit_intercept：是否计算偏置
+learning_rate : string, optional
+学习率填充
+'constant': eta = eta0
+'optimal': eta = 1.0 / (alpha * (t + t0)) [default]
+'invscaling': eta = eta0 / pow(t, power_t)
+power_t=0.25:存在父类当中
+对于一个常数值的学习率来说，可以使用learning_rate=’constant’ ，并使用eta0来指定学习率。
+属性：
+SGDRegressor.coef_：回归系数
+SGDRegressor.intercept_：偏置
+
+正规方程
+sklearn.linear_model.LinearRegression()
+梯度下降法
+sklearn.linear_model.SGDRegressor(）
+
+欠拟合【掌握】
+在训练集上表现不好，在测试集上表现不好
+解决方法：
+继续学习
+1.添加其他特征项
+2.添加多项式特征
+过拟合【掌握】
+在训练集上表现好，在测试集上表现不好
+解决方法：
+1.重新清洗数据集
+2.增大数据的训练量
+3.正则化
+4.减少特征维度
+正则化【掌握】
+通过限制高次项的系数进行防止过拟合
+L1正则化
+理解：直接把高次项前面的系数变为0
+Lasso回归
+L2正则化
+理解：把高次项前面的系数变成特别小的值
+岭回归
+
+Ridge Regression 岭回归
+就是把系数添加平方项
+然后限制系数值的大小
+α值越小，系数值越大，α越大，系数值越小
+Lasso 回归
+对系数值进行绝对值处理
+由于绝对值在顶点处不可导，所以进行计算的过程中产生很多0，最后得到结果为：稀疏矩阵
+Elastic Net 弹性网络
+是前两个内容的综合
+设置了一个r,如果r=0--岭回归；r=1--Lasso回归
+Early stopping
+通过限制错误率的阈值，进行停止
+
+klearn.linear_model.Ridge(alpha=1.0, fit_intercept=True,solver="auto", normalize=False)【知道】
+具有l2正则化的线性回归
+alpha -- 正则化
+正则化力度越大，权重系数会越小
+正则化力度越小，权重系数会越大
+normalize
+默认封装了，对数据进行标准化处理
+
+sklearn.externals import joblib【知道】
+保存：joblib.dump(estimator, 'test.pkl')
+加载：estimator = joblib.load('test.pkl')
+注意：
+1.保存文件，后缀名是**.pkl
+2.加载模型是需要通过一个变量进行承接

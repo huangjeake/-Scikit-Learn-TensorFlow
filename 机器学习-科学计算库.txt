@@ -1,0 +1,348 @@
+numpy:
+numpy介绍【了解】
+一个开源的Python科学计算库
+计算起来要比python简洁高效
+Numpy使用ndarray对象来处理多维数组
+
+ndarray的优势【掌握】
+内存块风格
+	list -- 分离式存储,存储内容多样化
+	ndarray -- 一体式存储,存储类型必须一样
+ndarray支持并行化运算（向量化运算）
+ndarray底层是用C语言写的,效率更高,释放了GIL
+
+数组的基本属性
+属性名字		属性解释
+ndarray.shape	数组维度的元组
+ndarray.ndim	数组维数
+ndarray.size	数组中的元素数量
+ndarray.itemsize一个数组元素的长度（字节）
+ndarray.dtype	数组元素的类型
+
+数组基本操作：shape代码数组维度 a代表数组
+np.ones(shape, dtype)
+np.ones_like(a, dtype)
+np.zeros(shape, dtype)
+np.zeros_like(a, dtype)
+a = np.array([[1,2,3],[4,5,6]])
+b = np.array(a)#深拷贝
+c = np.asarray(a)#浅拷贝
+
+生成固定范围的数组：
+np.linspace (start, stop, num, endpoint)
+start:序列的起始值
+stop:序列的终止值
+num:要生成的等间隔样例数量，默认为50
+endpoint:序列中是否包含stop值，默认为ture
+
+np.arange(start,stop, step, dtype)
+start:序列的起始值
+stop:序列的终止值，不包括终止值
+step：步长，默认1
+
+np.logspace(start,stop, num)#创建等比数列，默认以10为底
+num:要生成的等比数列数量，默认为50
+
+正态分布：
+np.random.randn(d0, d1, …, dn)#从标准正太分布中返回一个或者一组值
+np.random.normal(loc=0.0, scale=1.0, size=None)#loc是均值，scale是标准差，size是样本大小
+np.random.standard_normal(size=None)#返回指定形状的标准正态分布的数组
+
+均匀
+np.random.rand()#0-1均匀分布
+np.random.uniform(0, 1, 100)#0-1均匀分布，样本大小100
+np.random.randint(0, 10, 10)#0-10均匀分布，样本大小10
+
+数组的索引、切片：
+直接进行索引,切片
+对象[:, :] -- 先行后列
+a1 = np.array([ [[1,2,3],[4,5,6]], [[12,3,34],[5,6,7]]])
+a1[1,0,1:]
+
+形状修改：
+ndarray.reshape(shape, order)#改变数组形状
+stock_change.reshape([10,2])
+ndarray.resize(new_shape)#改变数组形状
+stock_change.resize([5, 4])
+ndarray.T#数组的转置
+stock_change.T
+
+类型修改：
+ndarray.astype(type)#修改数组类型
+stock_change.astype(np.int32)
+ndarray.tostring([order])或者ndarray.tobytes([order])
+stock_change.tostring()
+
+数组的去重：
+np.unique()
+temp = np.array([[1, 2, 3, 4],[3, 4, 5, 6]])
+np.unique(temp)
+
+逻辑运算：
+score_test >60 #数组直接比较
+通用判断函数：
+np.all()
+np.all(score[0:2, :] > 60)# 判断前两名同学的成绩[0:2, :]是否全及格
+np.any()
+np.any()np.any(score[0:2, :] > 80)# 判断前两名同学的成绩[0:2, :]是否有大于90分的
+
+np.where（三元运算符）
+np.where(score[:,:] >= 60,'及格','不及格')#分数大于等于60及格，否则不及格
+多个条件复合逻辑需要结合np.logical_and和np.logical_or使用
+np.where(np.logical_and(temp > 60, temp < 90), 1, 0)
+np.where(np.logical_or(temp > 90, temp < 60), 1, 0)
+
+统计指标：axis代表列
+print("前四名学生,各科成绩的最大分：{}".format(np.max(temp, axis=0)))#每列最大值
+np.median()#每列中位数
+np.var()#每列方差
+print("前四名学生,各科成绩的最小分：{}".format(np.min(temp, axis=0)))#每列最小值
+print("前四名学生,各科成绩波动情况：{}".format(np.std(temp, axis=0)))#每列标准差
+print("前四名学生,各科成绩的平均分：{}".format(np.mean(temp, axis=0)))#每列平均值
+np.argmax(axis=) — 最大元素对应的下标
+np.argmin(axis=) — 最小元素对应的下标
+
+数组间运算：
+#数组与数字的运算,每个元素都进行操作
+
+数组与数组的运算
+广播机制：数组在进行矢量化运算时，要求数组的形状是相等的。当形状不相等的数组执行算术运算的时候，就会出现广播机制，该机制会对数组进行扩展，使数组的shape属性值一样，这样，就可以进行矢量化运算了。
+满足广播机制条件：
+1.数组的某一维度等长.(二维数组)
+2.其中一个数组的某一维度为1
+三维以上数组：从末尾位数算起，维数必须一致
+
+矩阵不能直接*
+np.matmul(a,b)
+np.dot(a,b)
+注意：二者都是矩阵乘法。 np.matmul中禁止矩阵与标量(常数)的乘法。 在矢量乘矢量的內积运算中，np.matmul与np.dot没有区别
+
+pandas:
+pandas的优势
+增强图表可读性
+便捷的数据处理能力
+读取文件方便
+封装了Matplotlib、Numpy的画图和计算
+
+一维数组：Series的创建
+import pandas as pd
+pd.Series(data=None, index=None, dtype=None)
+参数：
+data：传入的数据，可以是ndarray、list等
+index：索引，必须是唯一的，且与数据的长度相等。如果没有传入索引参数，则默认会自动创建一个从0-N的整数索引。
+dtype：数据的类型
+pd.Series(np.random.randint(0,100,100))
+
+Series的属性：
+Series中提供了两个属性index和values
+count_color.index
+count_color.values
+color_count[2]#也可以使用索引来获取数据，字典数据取值
+
+二位数组DataFrame：
+行索引 axis=0 
+列索引 axis=1
+pd.DataFrame(data=None, index=None, columns=None)
+参数：
+index：行标签。如果没有传入索引参数，则默认会自动创建一个从0-N的整数索引。
+columns：列标签。如果没有传入索引参数，则默认会自动创建一个从0-N的整数索引。
+通过已有数据创建
+
+DataFrame的属性：
+data.shape
+data.index行索引列表
+data.columns列索引列表
+data.values直接获取其中array的值
+data.T装置
+data.head()默认显示前5行
+data.head(10)显示前10行
+data.tail()默认显示后5行
+data.tail(10)默认显示后10行
+
+DatatFrame索引的设置：
+修改行列索引值：
+stu = ["学生_" + str(i) for i in range(score_df.shape[0])]
+data.index = stu#必须整体全部修改，根据索引单个修改会报错
+
+重设索引：
+data.reset_index(drop=False)
+设置新的下标索引
+drop:默认为False，不删除原来索引，如果为True,删除原来的索引值
+以某列值设置为新的索引:
+data.set_index(keys, drop=True)
+keys : 列索引名成或者列索引名称的列表
+drop : boolean, default True.当做新的索引，删除原来的列
+
+multiIndex的特性:
+df.index属性
+names:索引levels的名称#df.index.names
+levels：每个索引level的元组值#df.index.levels
+
+multiIndex的创建：
+arrays = [[1, 1, 2, 2], ['red', 'blue', 'red', 'blue']]
+pd.MultiIndex.from_arrays(arrays, names=('number', 'color'))
+
+基本数据操作：
+data.drop(["ma5","ma10","ma20","v_ma5","v_ma10","v_ma20"], axis=1)#删除列
+
+索引操作：
+直接使用行列索引(先列后行)
+data['open']['2018-02-27']#如果是先行后列或者索引切片会报错
+结合loc或者iloc使用索引：
+data.loc['2018-02-27':'2018-02-22', 'open']#可以先行后列，只能使用指定索引的名字
+data.iloc[:3, :5]#使用iloc可以通过索引的下标去获取，其他报错
+
+赋值操作：
+data['close'] = 1或者data.close = 1
+
+DataFrame排序：
+df.sort_values(by=, ascending=)
+单个键或者多个键进行排序,
+参数：
+by：指定排序参考的键
+ascending:默认升序
+ascending=False:降序
+ascending=True:升序
+data.sort_values(by=['open', 'high'])# 按照多个键进行排序
+data.sort_index()#对索引进行排序
+
+算数运算：
+add(other)
+data['open'].add(1)#加一
+sub(other)
+data['open'].sub(1)#减一
+
+逻辑运算：
+data[(data['open'] > 23) &( data['open'] < 24)].head(10)#多个条件用&
+逻辑运算函数：
+query(expr)
+	expr:查询字符串
+data.query("open<24 & open>23").head()
+isin(values)
+data[data["open"].isin([23.53, 23.85])]
+
+统计运算：
+data.describe()#计算平均值、标准差、最大值、最小值
+data.max() data.min() data.max(1)0 代表列求结果， 1 代表行求统计结果
+data.idxmax()、data.idxmin() data.idxmax(axis=0)最大值最小值索引
+
+自定义运算：
+data[['open','high']].apply(lambda x : x.max() - x.min() )#最大值减去最小值
+
+pandas画图：
+DataFrame.plot(kind='line')
+kind : str，需要绘制图形的种类
+‘line’ : line plot (default)
+‘bar’ : vertical bar plot
+‘barh’ : horizontal bar plot
+‘hist’ : histogram
+‘pie’ : pie plot
+‘scatter’ : scatter plot
+
+文件读取：
+CSV
+pandas.read_csv(filepath_or_buffer, sep =',', usecols )
+filepath_or_buffer:文件路径
+sep :分隔符，默认用","隔开
+usecols:指定读取的列名，列表形式
+pd.read_csv("./data/stock_day.csv", usecols=['open', 'close'])
+
+DataFrame.to_csv(path_or_buf=None, sep=', ’, columns=None, header=True, index=True, mode='w', encoding=None)
+path_or_buf :文件路径
+sep :分隔符，默认用","隔开
+columns :选择需要的列索引
+header :boolean or list of string, default True,是否写进列索引值
+index:是否写进行索引
+mode:'w'：重写, 'a' 追加
+data[:10].to_csv("./data/test.csv", columns=['open'])#会写入行索引
+data[:10].to_csv("./data/test.csv", columns=['open'], index=False)#index:存储不会将索引值变成一列数据
+
+HDF5
+pandas.read_hdf(path_or_buf，key =None，** kwargs)
+path_or_buffer:文件路径
+key:读取的键
+return:Theselected object
+pd.read_hdf("./data/test.h5", key="day_close")
+data.to_hdf("./data/test.h5", key="day_close")
+注意：优先选择使用HDF5文件存储
+HDF5在存储的时候支持压缩，使用的方式是blosc，这个是速度最快的也是pandas默认支持的
+使用压缩可以提磁盘利用率，节省空间
+HDF5还是跨平台的，可以轻松迁移到hadoop 上面
+
+JSON
+pandas.read_json(path_or_buf=None, orient=None, typ='frame', lines=False)
+orient : string,Indication of expected JSON string format.
+'split' : dict like {index -> [index], columns -> [columns], data -> [values]}
+split 将索引总结到索引，列名到列名，数据到数据。将三部分都分开了
+'records' : list like [{column -> value}, ... , {column -> value}]
+records 以columns：values的形式输出
+'index' : dict like {index -> {column -> value}}
+index 以index：{columns：values}...的形式输出
+'columns' : dict like {column -> {index -> value}},默认该格式
+colums 以columns:{index:values}的形式输出
+'values' : just the values array
+values 直接输出值
+lines : boolean, default False
+按照每行读取json对象
+typ : default ‘frame’， 指定转换成的对象类型series或者dataframe
+
+DataFrame.to_json(path_or_buf=None, orient=None, lines=False)
+将Pandas 对象存储为json格式
+path_or_buf=None：文件地址
+orient:存储的json形式，{‘split’,’records’,’index’,’columns’,’values’}
+lines:一个对象存储为一行
+
+数据清洗--高级数据处理：
+缺失值处理：
+判断缺失值是否存在
+pd.notnull(movie)
+np.all(pd.notnull(movie))
+
+删除缺失值NAN
+data.dropna()# 不修改原数据 pandas删除缺失值，使用dropna的前提是，缺失值的类型必须是np.nan
+替换缺失值
+movie['Revenue (Millions)'].fillna(movie['Revenue (Millions)'].mean(), inplace=True)
+替换所有缺失值
+for i in movie.columns:
+    if np.all(pd.notnull(movie[i])) == False:
+        print(i)
+        movie[i].fillna(movie[i].mean(), inplace=True)
+
+非NAN缺失值替换
+df.replace(to_replace=, value=)
+wis = wis.replace(to_replace='?', value=np.nan)#把一些其它值标记的缺失值，替换成np.nan
+wis = wis.dropna()# 替换后删除
+
+
+数据离散化：
+就是在连续属性的值域上，将值域划分为若干个离散的区间，最后用不同的符号或整数 值代表落在每个子区间中的属性值 减少给定连续属性值的个数
+pd.qcut(data, q)
+pd.qcut(p_change, 10)#根据最大值最小值自动分为10组
+data.value_counts()# 计算分到每个组数据个数
+pd.cut(data, bins)#自定义区间分组
+bins = [-100, -7, -5, -3, 0, 3, 5, 7, 100]
+p_counts = pd.cut(p_change, bins)
+
+热编码：
+dummies = pd.get_dummies(p_counts, prefix="rise")#得出one-hot编码矩阵 每一行只有一个为1
+
+数据合并：
+pd.concat([data1, data2], axis=1) 
+	按照行或列进行合并,axis=0为列索引，axis=1为行索引
+pd.concat([data, dummies], axis=1)
+   
+pd.merge(left, right, how='inner', on=None)
+left: DataFrame
+right: 另一个DataFrame
+on: 指定的共同键
+how:按照什么方式连接
+
+交叉表：
+pd.crosstab(data['week'], data['posi_neg'])#  通过交叉表找寻两列数据的关系
+透视表
+data.pivot_table(['posi_neg'], index='week')
+
+分组聚合：
+DataFrame.groupby(key, as_index=False)#key:分组的列数据，可以多个
+col.groupby(['color'])['price1'].mean()#对颜色进行分组，对价格1取平均值
+starbucks.groupby(['Country', 'State/Province']).count()#多字段分组计数
