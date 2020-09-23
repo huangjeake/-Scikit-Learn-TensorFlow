@@ -28,6 +28,7 @@ from sklearn.neighbors import KNeighborsClassifier
 
 iris = load_iris()
 x_train, x_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.2, random_state=20)
+print(iris.target)
 transfer = StandardScaler()
 x_train = transfer.fit_transform(x_train)
 x_test = transfer.fit_transform(x_test)
