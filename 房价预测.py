@@ -38,7 +38,8 @@ def model():
     print('模型方差:\n', mean_squared_error(y_test, estimator.predict(x_test)))
     print('准确率:\n', estimator.score(x_test, y_test))
 
-
+data = load_boston()
+print(data['data'].shape)
 def mode2():
     """
     梯度下降法
@@ -108,6 +109,7 @@ def mode3():
 
 
 if __name__ == '__main__':
-    model()
-    mode2()
-    mode3()
+    # model()
+    # mode2()
+    # mode3()
+    pass
