@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03e5679f-143a-4f8c-b67d-67dcad9ee484" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/2020-10-11.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2020-10-7西瓜书--多分类学习.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2020-10-24周志华-西瓜书.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2020-10-35周志华-西瓜书 聚类.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,80 +20,50 @@
     <session id="2021652670">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="9" />
+          <entry key="py" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="9" />
+          <entry key="Python" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="13" />
-          <entry key="py" value="1411" />
+          <entry key="dummy" value="7" />
+          <entry key="py" value="382" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="1411" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="Python" value="382" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2020-10-4强化学习.py">
+        <entry file="file://$PROJECT_DIR$/2020-10-24周志华-西瓜书.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/demo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2020-10-6策略梯度.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-              <folding>
-                <element signature="e#320#343#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2020-10-7西瓜书--多分类学习.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/2020-10-11.py">
+        <entry file="file://$PROJECT_DIR$/2020-10-35周志华-西瓜书 聚类.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+            <state relative-caret-position="459">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -113,14 +83,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/鸢尾花种类预测.py" />
-        <option value="$PROJECT_DIR$/2020-10-4 自动编码器.py" />
-        <option value="$PROJECT_DIR$/2020-10-4强化学习.py" />
-        <option value="$PROJECT_DIR$/2020-10-6.py" />
-        <option value="$PROJECT_DIR$/demo.py" />
-        <option value="$PROJECT_DIR$/2020-10-6策略梯度.py" />
-        <option value="$PROJECT_DIR$/2020-10-7西瓜书--多分类学习.py" />
-        <option value="$PROJECT_DIR$/2020-10-11.py" />
+        <option value="$PROJECT_DIR$/2020-10-24.py" />
+        <option value="$PROJECT_DIR$/2020-10-24周志华-西瓜书.py" />
+        <option value="$PROJECT_DIR$/2020-10-35周志华-西瓜书 聚类.py" />
       </list>
     </option>
   </component>
@@ -133,9 +98,10 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="40" />
-    <option name="width" value="1348" />
+    <option name="width" value="1349" />
     <option name="height" value="690" />
   </component>
+  <component name="ProjectId" id="1jEfm7qcDDsJ7qWwYDXhHVfEkX5" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -157,6 +123,11 @@
         </subPane>
       </pane>
     </panes>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -223,8 +194,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.鸢尾花种类预测" />
       <item itemvalue="Python.2020-10-4 自动编码器" />
+      <item itemvalue="Python.鸢尾花种类预测" />
     </list>
     <recent_temporary>
       <list>
@@ -250,28 +221,28 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17627347" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32765958" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="Remote Host" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info anchor="right" id="SciView" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,76 +252,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/房价预测.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1566">
-          <caret line="58" column="45" lean-forward="true" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/鸢尾花种类预测.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2020-9-25循环神经网络.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2020-10-4 自动编码器和自动读写.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-          <folding>
-            <element signature="e#197#206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2020-10-4强化学习.py">
+    <entry file="file://$PROJECT_DIR$/2020-10-24周志华-西瓜书.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo.py">
+    <entry file="file://$PROJECT_DIR$/2020-10-35周志华-西瓜书 聚类.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2020-10-6策略梯度.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-          <folding>
-            <element signature="e#320#343#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2020-10-7西瓜书--多分类学习.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2020-10-11.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        <state relative-caret-position="459">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
