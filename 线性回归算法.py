@@ -14,5 +14,6 @@ y = [84.2, 80.6, 80.1, 90, 83.2, 87.6, 79.4, 93.4]
 
 estimator = LinearRegression()
 estimator.fit(x,y)
+print(estimator.score(x, y))
 print('线性回归系数是：\n',estimator.coef_)
 print('线性回归的值是：\n',estimator.predict([[80,90]]))
