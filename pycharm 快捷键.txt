@@ -1,0 +1,28 @@
+快捷键	功能
+Ctrl + Q	快速查看文档
+Ctrl + F1	显示错误描述或警告信息
+Ctrl + /	行注释（可选中多行）
+Ctrl + Alt + L	代码格式化
+Ctrl + Alt + O	自动导入
+Ctrl + Alt + I	自动缩进
+Tab / Shift + Tab	缩进、不缩进当前行（可选中多行）
+Ctrl+C/Ctrl+Insert	复制当前行或选定的代码块到剪贴板
+Ctrl + D	复制选定的区域
+Ctrl + Y	删除当前行
+Shift + Enter	换行（不用鼠标操作了）
+Ctrl +Ｊ	插入模版
+Ctrl + Shift +/-	展开/折叠全部代码块
+Ctrl + Delete	删除到字符结束
+Ctrl + Backspace	删除到字符开始
+Alt + up/down	方法上移或下移动
+Alt + Shift + up/down	当前行上移或下移动
+F3	下一个
+Shift + F3	前一个
+Ctrl + R	替换
+Ctrl + Shift + F	全局查找
+Ctrl + Shift + R	全局替换
+Alt + 点击        多行选中
+fn + home(左键)  回到行首
+fn + end(右键)   回到行尾
+Ctrl + fn + home(左键) 文件首行
+Ctrl + fn +  end(右键) 文件尾行

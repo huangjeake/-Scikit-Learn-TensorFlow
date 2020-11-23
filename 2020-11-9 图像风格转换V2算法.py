@@ -42,6 +42,8 @@ X_data = np.array(X_data)
 print(X_data.shape)  # 82216张
 
 # 加载matlab训练好的模型
+# http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat模型下载地址
+#通过预训练好的Vgg16模型来对图片进行风格转换，首先需要准备好vgg16的模型参数。链接: https://pan.baidu.com/s/1shw2M3Iv7UfGjn78dqFAkA 提取码: ejn8
 vgg = scipy.io.loadmat('imagenet-vgg-verydeep-19.mat')
 vgg_layers = vgg['layers']
 
@@ -192,7 +194,7 @@ CONTENT_LAYER = 'conv3_3'
 content_endpoints = vgg_endpoints(X - MEAN_VALUES, True)
 g_endpoints = vgg_endpoints(g - MEAN_VALUES, True)
 
-
+# 计算内容损失
 def get_content_loss(endpoints_x, endpoints_y, layer_name):
     x = endpoints_x[layer_name]
     y = endpoints_y[layer_name]
