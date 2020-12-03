@@ -30,7 +30,7 @@ def resize_and_crop(image, image_size):
 X_data = []
 image_size = 256
 # 加载训练集
-paths = glob.glob('train2014/*.jpg')
+paths = glob.glob('contents/*.jpg')
 for i in tqdm(range(len(paths))):
     path = paths[i]
     image = imread(path)
@@ -39,28 +39,45 @@ for i in tqdm(range(len(paths))):
 
     X_data.append(resize_and_crop(image, image_size))  # 将符合条件的图片进行放缩
 X_data = np.array(X_data)
-print(X_data.shape)  # 82216张
+# print(X_data.shape)  # 82216张
 
 # 加载matlab训练好的模型
 # http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat模型下载地址
 #通过预训练好的Vgg16模型来对图片进行风格转换，首先需要准备好vgg16的模型参数。链接: https://pan.baidu.com/s/1shw2M3Iv7UfGjn78dqFAkA 提取码: ejn8
 vgg = scipy.io.loadmat('imagenet-vgg-verydeep-19.mat')
 vgg_layers = vgg['layers']
+# print('vgg', vgg_layers)
 
 
 def vgg_endpoints(inputs, reuse=None):
     with tf.variable_scope('endpoints', reuse=reuse):
         def _weights(layer, expected_layer_name):
-            W = vgg_layers[0][layer][0][0][2][0][0]
-            b = vgg_layers[0][layer][0][0][2][0][1]
-            layer_name = vgg_layers[0][layer][0][0][0][0]
+            W = vgg_layers[0][layer][0][0][0][0][0]
+            b = vgg_layers[0][layer][0][0][0][0][1]
+            layer_name = vgg_layers[0][layer][0][0][-2]
+            # print('----------------------->')
+            # print(vgg_layers[0][layer][0][0][2])
+            # print('----------------------->')
+            # print(vgg_layers[0][layer][0])
+            # print('----------------------->')
+            # print(vgg_layers[0][layer][0][0])
+            # print('----------------------->')
+            # print(vgg_layers[0][layer][0][0][-2])
+            # print('----------------------->')
+            # print(layer_name, 'h', expected_layer_name)
+            # print(layer_name.shape, 'h', expected_layer_name.shape)
             assert layer_name == expected_layer_name
+
             return W, b
 
         def _conv2d_relu(prev_layer, layer, layer_name):
             W, b = _weights(layer, layer_name)
             W = tf.constant(W)
+            # print('参数w和b', W)
+            # print(b, type(b))
             b = tf.constant(np.reshape(b, (b.size)))
+
+
             return tf.nn.relu(tf.nn.conv2d(prev_layer, filter=W, strides=[1, 1, 1, 1], padding='SAME') + b)
 
         def _avgpool(prev_layer):
@@ -94,7 +111,7 @@ def vgg_endpoints(inputs, reuse=None):
 
 # 选择一张风格图，减去通道颜色均值后，得到风格图片在vgg19各个层的输出值，
 # 计算四个风格层对应的Gram矩阵
-style_index = 1  # 读取第二张风格图  这样训练的就是生成第二张风格的网络
+style_index = 0  # 读取第二张风格图  这样训练的就是生成第二张风格的网络
 X_style_data = resize_and_crop(imread(style_images[style_index]), image_size)
 X_style_data = np.expand_dims(X_style_data, 0)  # 将风格图扩展一维，因为网络的输入为四维 (1, 2, 3)扩展为(1, 1, 2, 3)
 # print(X_style_data.shape)
@@ -102,6 +119,7 @@ X_style_data = np.expand_dims(X_style_data, 0)  # 将风格图扩展一维，因
 MEAN_VALUES = np.array([123.68, 116.779, 103.939]).reshape((1, 1, 1, 3))
 
 X_style = tf.placeholder(dtype=tf.float32, shape=X_style_data.shape, name='X_style')
+# print(X_style.shape)
 style_endpoints = vgg_endpoints(X_style - MEAN_VALUES) #在通道上面减去均值
 # 选下面四层计算我们的风格
 STYLE_LAYERS = ['conv1_2', 'conv2_2', 'conv3_3', 'conv4_3']
@@ -260,7 +278,7 @@ writer = tf.summary.FileWriter(OUTPUT_DIR)
 
 sess.run(tf.global_variables_initializer())
 losses = []
-epochs = 2
+epochs = 10
 
 X_sample = imread('sjtu.jpg')
 h_sample = X_sample.shape[0]
@@ -270,10 +288,13 @@ for e in range(epochs):
     data_index = np.arange(X_data.shape[0])
     np.random.shuffle(data_index)
     X_data = X_data[data_index]
-
-    for i in tqdm(range(X_data.shape[0] // batch_size)):
+    # print('111', X_data, X_data[0: 4])
+    # 由于只有一个训练内容图片，无法得到最优参数
+    for i in tqdm(range(X_data.shape[0] // batch_size + 1)):
         X_batch = X_data[i * batch_size: i * batch_size + batch_size]
+        # print('222', X_batch)
         ls_, _ = sess.run([loss, optimizer], feed_dict={X: X_batch})
+        # print('loss', ls_)
         losses.append(ls_)
 
         if i > 0 and i % 20 == 0:

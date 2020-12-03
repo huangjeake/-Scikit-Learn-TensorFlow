@@ -1,15 +1,16 @@
-from sklearn.linear_model import LinearRegression,SGDRegressor,Ridge,RidgeCV# 线性 随机梯度 岭回归
-from sklearn.preprocessing import StandardScaler# 标准化
-from sklearn.model_selection import train_test_split,GridSearchCV# 训练测试集 网格交叉
+from sklearn.linear_model import LinearRegression, SGDRegressor, Ridge, RidgeCV  # 线性 随机梯度 岭回归
+from sklearn.preprocessing import StandardScaler  # 标准化
+from sklearn.model_selection import train_test_split, GridSearchCV  # 训练测试集 网格交叉
 from sklearn.datasets import load_boston
-from sklearn.metrics import mean_squared_error,classification_report# 标准方差 评估报告
-import joblib# 保存 加载模型
+from sklearn.metrics import mean_squared_error, classification_report  # 标准方差 评估报告
+import joblib  # 保存 加载模型  方法二：python自带的pickle 方法三：tf.train.saver()
 import pandas as pd
-from sklearn.metrics import roc_auc_score #AUC分数
-from sklearn.feature_extraction import DictVectorizer# 字典特征提取
-from sklearn.tree import DecisionTreeClassifier, export_graphviz# 决策树 决策树报告
-from sklearn.ensemble import RandomForestClassifier,AdaBoostClassifier# 随机森林
-from sklearn.cluster import KMeans# Kmeans聚类算法
+from sklearn.metrics import roc_auc_score  # AUC分数
+from sklearn.feature_extraction import DictVectorizer  # 字典特征提取
+from sklearn.tree import DecisionTreeClassifier, export_graphviz  # 决策树 决策树报告
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier  # 随机森林
+from sklearn.cluster import KMeans  # Kmeans聚类算法
+
 
 def model():
     """
@@ -27,7 +28,7 @@ def model():
 
     x_train, x_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.2, random_state=22)
 
-    #特征工程
+    # 特征工程
     transfer = StandardScaler()
     x_train = transfer.fit_transform(x_train)
     x_test = transfer.fit_transform(x_test)
