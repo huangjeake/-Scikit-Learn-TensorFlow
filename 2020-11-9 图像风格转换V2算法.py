@@ -44,7 +44,7 @@ X_data = np.array(X_data)
 # 加载matlab训练好的模型
 # http://www.vlfeat.org/matconvnet/models/beta16/imagenet-vgg-verydeep-19.mat模型下载地址
 #通过预训练好的Vgg16模型来对图片进行风格转换，首先需要准备好vgg16的模型参数。链接: https://pan.baidu.com/s/1shw2M3Iv7UfGjn78dqFAkA 提取码: ejn8
-vgg = scipy.io.loadmat('imagenet-vgg-verydeep-19.mat')
+vgg = scipy.io.loadmat(r'C:\Users\Administrator\Desktop\imagenet-vgg-verydeep-19.mat')
 vgg_layers = vgg['layers']
 # print('vgg', vgg_layers)
 
@@ -111,7 +111,7 @@ def vgg_endpoints(inputs, reuse=None):
 
 # 选择一张风格图，减去通道颜色均值后，得到风格图片在vgg19各个层的输出值，
 # 计算四个风格层对应的Gram矩阵
-style_index = 0  # 读取第二张风格图  这样训练的就是生成第二张风格的网络
+style_index = 1  # 读取第二张风格图  这样训练的就是生成第二张风格的网络
 X_style_data = resize_and_crop(imread(style_images[style_index]), image_size)
 X_style_data = np.expand_dims(X_style_data, 0)  # 将风格图扩展一维，因为网络的输入为四维 (1, 2, 3)扩展为(1, 1, 2, 3)
 # print(X_style_data.shape)
@@ -278,9 +278,9 @@ writer = tf.summary.FileWriter(OUTPUT_DIR)
 
 sess.run(tf.global_variables_initializer())
 losses = []
-epochs = 10
+epochs = 100
 
-X_sample = imread('sjtu.jpg')
+X_sample = imread('test.jpg')
 h_sample = X_sample.shape[0]
 w_sample = X_sample.shape[1]
 
@@ -315,5 +315,5 @@ for e in range(epochs):
     imsave(os.path.join(OUTPUT_DIR, 'sample_%d.jpg' % e), result)
 
 # 保存模型
-saver = tf.train.Saver()
-saver.save(sess, os.path.join(OUTPUT_DIR, 'fast_style_transfer'))
+# saver = tf.train.Saver()
+# saver.save(sess, os.path.join(OUTPUT_DIR, 'fast_style_transfer'))
